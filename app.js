@@ -10,6 +10,10 @@ const PORT = 8000;
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
+io.origins(['https://jeneljenel.me:443']);
+// io.origins(['http//localhost:3000']);
+
+
 io.on('connection', (socket) => {
     console.log("Connection established!")
 
