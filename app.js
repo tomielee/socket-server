@@ -23,27 +23,17 @@ io.on('connection', (socket) => {
         io.emit('ENTER_CHAT', data);
     })
     
-    socket.on('startChat', function(data) {
-        console.log(data);
-        io.emit('startChat', data);
-    })
+    socket.on('LEAVE_CHAT', function(data) {
+        io.emit('EXIT_CHAT', data);
+    }
 
-    socket.on('chatMessage', function(data) {
-        console.log(data);
-        io.emit('chatMessage', data)
-    })
-
+    )
     socket.on('disconnect', () => {
         console.log("Disconnected!");
     })
 
 
 });
-
-// io.on('disconnect', (socket) => {
-//     console.info("User disconnected.");
-
-// })
 
 server.listen(PORT, () => {
     console.log(`socket server listening on port ${PORT}!`);
